@@ -20,13 +20,43 @@ package com.mouredev.weeklychallenge2022
  *
  */
 
-fun main() {
-    println(isAnagram("amor", "roma"))
+ fun main() {
+    val firstWord: String = "hola"
+    val secondWord: String = "aloc"
+    
+    print("$firstWord y $secondWord ")
+    
+    if (!itsAnagram(firstWord, secondWord)) {
+        print ("NO ")
+    } 
+    
+    println ("son anagramas")
 }
 
-private fun isAnagram(wordOne: String, wordTwo: String): Boolean {
-    if (wordOne.lowercase() == wordTwo.lowercase()) {
-        return false
+fun itsAnagram(a: String, b: String): Boolean{
+    var result: Boolean = true
+    var index: Int = b.length
+    
+    if (a.length != index) { result = false }
+    
+    a.forEach {
+        index--
+        if (b[index] != it) { result = false }        
     }
-    return wordOne.lowercase().toCharArray().sortedArray().contentEquals(wordTwo.lowercase().toCharArray().sortedArray())
+        
+    return result
 }
+
+/*
+ * SOLUCION MOUREDEV
+ *   fun main() {
+ *       println(isAnagram("amor", "roma"))
+ *   }
+ *
+ *  private fun isAnagram(wordOne: String, wordTwo: String): Boolean {
+ *       if (wordOne.lowercase() == wordTwo.lowercase()) {
+ *           return false
+ *       }
+ *       return wordOne.lowercase().toCharArray().sortedArray().contentEquals(wordTwo.lowercase().toCharArray().sortedArray())
+ *   }
+ */
