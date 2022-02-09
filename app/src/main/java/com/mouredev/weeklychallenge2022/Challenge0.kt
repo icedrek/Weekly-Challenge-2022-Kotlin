@@ -19,19 +19,39 @@ package com.mouredev.weeklychallenge2022
  *
  */
 
-fun main() {
+/*
+ * SOLUCION MOUREDEV
+ *   fun main() {
+ *
+ *       for (index in 1..100) {
+ *           val divisibleByThree = index % 3 == 0
+ *           val divisibleByFive = index % 5 == 0
+ *           if (divisibleByThree && divisibleByFive) {
+ *               println("fizzbuzz")
+ *           } else if (divisibleByThree) {
+ *              println("fizz")
+ *           } else if (divisibleByFive) {
+ *               println("buzz")
+ *           } else {
+ *               println(index)
+ *           }
+ *       }
+ *   }
+ */
 
-    for (index in 1..100) {
-        val divisibleByThree = index % 3 == 0
-        val divisibleByFive = index % 5 == 0
-        if (divisibleByThree && divisibleByFive) {
+ fun main() {
+    for (i in 1..100){
+        var div3 = i % 3 == 0
+        var div5 = i % 5 == 0
+        
+        if (div3&&div5){
             println("fizzbuzz")
-        } else if (divisibleByThree) {
+        } else if (div3){
             println("fizz")
-        } else if (divisibleByFive) {
+        } else if (div5){
             println("buzz")
         } else {
-            println(index)
-        }
+            println (i)
+        }                
     }
 }
