@@ -21,17 +21,38 @@ import java.math.BigInteger
  *
  */
 
-fun main() {
-
-    var n0: Long = 0
-    var n1: Long = 1
-
-    (1..50).forEach { _ ->
-
-        println(n0)
-
-        val fib = n0 + n1
-        n0 = n1
-        n1 = fib
-    }
+ fun main() {
+    val maxValue: Int = 50        
+    val result: MutableList<Long> = fibonacci(maxValue)
+    
+    println(result)
 }
+
+private fun fibonacci(maxValue: Int): MutableList<Long> {    
+    var result: MutableList <Long> = mutableListOf(0, 1)
+    var index: Int = 1
+    
+    while (index < maxValue) {
+        result += result[index] + result[index-1]                
+        index++
+    }
+    return result
+}
+
+/*
+ * SOLUCION MOUREDEV
+ *    fun main() {
+ *
+ *      var n0: Long = 0
+ *       var n1: Long = 1
+ * 
+ *       (1..50).forEach { _ ->
+ *
+ *           println(n0)
+ *
+ *           val fib = n0 + n1
+ *           n0 = n1
+ *           n1 = fib
+ *       }
+ *   }
+ */
