@@ -20,6 +20,21 @@ package com.mouredev.weeklychallenge2022
  *   https://retosdeprogramacion.com/semanales2022.
  *
  */
+fun main() {
+    val input = "in #kotlin, Hello, @world!!!  available in https://kotlinlang.org @gbs"
+    println(detectHandles(input))
+}
 
+fun detectHandles(text: String): List<String> {
+    val userHandleRegex = Regex("@\\w+")
+    val hashtagHandleRegex = Regex("#\\w+")
+    val webHandleRegex = Regex("(https?://)?(www\\.)?\\S+\\.(com|es|org)")
+
+    val userHandles = userHandleRegex.findAll(text).map { it.value }.toList()
+    val hashtagHandles = hashtagHandleRegex.findAll(text).map { it.value }.toList()
+    val webHandles = webHandleRegex.findAll(text).map { it.value }.toList()
+
+    return userHandles + hashtagHandles + webHandles
+}
 
 
